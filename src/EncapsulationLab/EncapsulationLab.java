@@ -2,7 +2,7 @@ package EncapsulationLab;
 
 class EncapsulationLab
 {
-	//comment to see change
+	//mn branch
 	public static void main(String args[])
 	{
 		Player Bob = new Player("Bob", 70);
