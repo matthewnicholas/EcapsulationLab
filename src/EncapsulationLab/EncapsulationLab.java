@@ -2,6 +2,7 @@ package EncapsulationLab;
 
 class EncapsulationLab
 {
+	//comment to see change
 	public static void main(String args[])
 	{
 		Player Bob = new Player("Bob", 70);
