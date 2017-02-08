@@ -16,8 +16,8 @@ class EncapsulationLab
 }
 class Match
 {
-	Team one, two;
-	int numberOfPlayers,numberOfGames;
+	private Team one, two;
+	private int numberOfPlayers,numberOfGames;
 	public Match(Team one, Team two, int numberOfPlayers,int numberOfGames) {
 		super();
 		this.one = one;
@@ -30,22 +30,22 @@ class Match
 		int onewins = 0;
 		for (int i=0;i<numberOfGames;i++)
 		{
-			if (Math.random()*one.players[i%numberOfPlayers].Skill > Math.random()*two.players[i%numberOfPlayers].Skill)
-				one.wins++;
+			if (Math.random()*one.getPlayers()[i%numberOfPlayers].getSkill() > Math.random()*two.getPlayers()[i%numberOfPlayers].getSkill())
+				one.setWins(one.getWins()+1);
 			else
-				two.wins++;
+				two.setWins(two.getWins()+1);
 		}
-		if (one.wins < two.wins)
-			System.out.println("Team "+two.name + " wins "+ two.wins + " to " + one.wins);
+		if (one.getWins() < two.getWins())
+			System.out.println("Team "+two.getName() + " wins "+ two.getWins() + " to " + one.getWins());
 		else 
-			System.out.println("Team "+one.name + " wins "+ one.wins + " to " + two.wins);
+			System.out.println("Team "+one.getName() + " wins "+ one.getWins() + " to " + two.getWins());
 	}
 }
 class Team
 {
-	Player players[] = new Player[3];
-	String name;
-	int wins=0;
+	private Player players[] = new Player[3];
+	private String name;
+	private int wins=0;
 	public Team(String name, Player a, Player b, Player c)
 	{
 		this.name = name;
@@ -53,14 +53,43 @@ class Team
 		players[1] = b;
 		players[2] = c;
 	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public Player[] getPlayers() {
+		Player[] retPlayers = new Player[players.length];
+		for(int i=0; i<players.length; i++)
+			retPlayers[i] = players[i];
+		
+		return retPlayers;
+	}
+	
+	public int getWins() {
+		return wins;
+	}
+	
+	public void setWins(int newWins) {
+		this.wins = newWins;
+	}
 }
 class Player
 {
-	String name;
-	int Skill;
+	private String name;
+	private int Skill;
+	
 	public Player(String name, int skill) {
 		super();
 		this.name = name;
 		Skill = skill;
-	}	
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getSkill() {
+		return this.Skill;
+	}
 }
