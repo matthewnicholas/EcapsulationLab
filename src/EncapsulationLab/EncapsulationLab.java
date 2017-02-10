@@ -1,5 +1,9 @@
 package EncapsulationLab;
 
+/***
+ * @author Matthew Nicholas
+ */
+
 class EncapsulationLab
 {
 	//mn branch
